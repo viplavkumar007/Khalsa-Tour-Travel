@@ -25,14 +25,14 @@ export default function Navbar() {
     : 'rounded-full px-3 py-2 text-white bg-navy-950/55 hover:bg-navy-950/72 hover:text-gold-200 shadow-[0_10px_28px_rgba(0,0,0,0.28)] backdrop-blur-md'
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="relative z-50 md:fixed md:inset-x-0 md:top-0">
       <div
         className={`transition-all duration-300 ${
-          scrolled ? 'border-b border-navy-100 bg-white text-navy-800' : 'bg-transparent text-white'
+          scrolled ? 'border-b border-navy-100 bg-white text-navy-800' : 'bg-white text-navy-800 md:bg-transparent md:text-white'
         }`}
       >
         <div className="mx-auto flex max-w-[1500px] flex-wrap items-center justify-between gap-x-4 gap-y-1 px-3 py-2 text-[11px] sm:px-6 sm:text-xs lg:px-8">
-          <div className={`flex min-w-0 flex-wrap items-center gap-x-4 gap-y-1 font-semibold ${scrolled ? 'text-navy-700' : 'text-white/90'}`}>
+          <div className={`flex min-w-0 flex-wrap items-center gap-x-4 gap-y-1 font-semibold ${scrolled ? 'text-navy-700' : 'text-navy-700 md:text-white/90'}`}>
             <a href={`tel:${contact.phone}`} className="hover:text-gold-300">{contact.phoneDisplay}</a>
             <a href={`mailto:${contact.email}`} className="max-w-full break-all hover:text-gold-300">{contact.email}</a>
           </div>
@@ -44,7 +44,7 @@ export default function Navbar() {
         className={`border-b transition-all duration-300 ${
           scrolled
             ? 'border-navy-100 bg-white shadow-[0_18px_45px_rgba(6,21,48,0.08)]'
-            : 'border-transparent bg-transparent shadow-none backdrop-blur-0'
+            : 'border-navy-100 bg-white shadow-[0_10px_26px_rgba(6,21,48,0.06)] md:border-transparent md:bg-transparent md:shadow-none md:backdrop-blur-0'
         }`}
       >
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-3 py-3 sm:px-4 sm:py-4 lg:px-6 xl:px-8">
@@ -52,15 +52,15 @@ export default function Navbar() {
             type="button"
             onClick={() => scrollToSection('#home')}
             className={`flex min-w-0 items-center gap-2 rounded-[20px] px-2.5 py-2 text-left transition-all duration-300 sm:gap-3 sm:rounded-[24px] sm:px-3 lg:min-w-[290px] ${
-              scrolled ? 'bg-navy-50/90' : 'bg-navy-950/50 shadow-[0_12px_28px_rgba(0,0,0,0.28)] backdrop-blur-md'
+              scrolled ? 'bg-navy-50/90' : 'bg-navy-50/90 md:bg-navy-950/50 md:shadow-[0_12px_28px_rgba(0,0,0,0.28)] md:backdrop-blur-md'
             }`}
           >
-            <div className={`flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full sm:h-20 sm:w-20 ${scrolled ? 'bg-white' : 'bg-white/92'}`}>
+            <div className={`flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full sm:h-20 sm:w-20 ${scrolled ? 'bg-white' : 'bg-white md:bg-white/92'}`}>
               <img src={brand.logo} alt={brand.name} className="h-full w-full rounded-full object-cover" />
             </div>
             <div className="min-w-0 flex-1 pr-1">
-              <p className={`truncate font-display text-base font-bold leading-tight sm:text-xl lg:text-[1.45rem] ${scrolled ? 'text-navy-950' : 'text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]'}`}>{brand.shortName}</p>
-              <p className={`hidden text-sm sm:block ${scrolled ? 'text-navy-500' : 'text-white/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]'}`}>Jammu based tours and transport</p>
+              <p className={`truncate font-display text-base font-bold leading-tight sm:text-xl lg:text-[1.45rem] ${scrolled ? 'text-navy-950' : 'text-navy-950 md:text-white md:drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]'}`}>{brand.shortName}</p>
+              <p className={`hidden text-sm sm:block ${scrolled ? 'text-navy-500' : 'text-navy-500 md:text-white/90 md:drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]'}`}>Jammu based tours and transport</p>
             </div>
           </button>
 
@@ -98,7 +98,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
-            className={`rounded-xl p-2 lg:hidden ${scrolled ? 'text-navy-900' : 'text-white'}`}
+            className={`rounded-xl p-2 xl:hidden ${scrolled ? 'text-navy-900' : 'text-navy-900 md:text-white'}`}
             aria-label="Toggle menu"
           >
             {open ? <X size={24} /> : <Menu size={24} />}
