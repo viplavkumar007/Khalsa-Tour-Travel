@@ -34,11 +34,11 @@ export default function About() {
                 className="absolute inset-6 rounded-full"
                 style={{ background: 'linear-gradient(135deg, rgba(14,36,72,0.06), rgba(251,191,36,0.08))', border: '1px dashed rgba(251,191,36,0.3)' }}
               />
-              <div className="absolute inset-12 rounded-full bg-navy-50 flex items-center justify-center shadow-inner">
+              <div className="absolute inset-12 flex items-center justify-center overflow-hidden rounded-full bg-navy-50 shadow-inner">
                 <img
                   src={brand.logo}
                   alt="Khalsa Tour & Travels"
-                  className="w-36 h-36 object-contain"
+                  className="h-full w-full rounded-full object-cover"
                   loading="lazy"
                 />
               </div>
