@@ -129,25 +129,26 @@ export default function App() {
 
       <main>
         <section id="home" className="relative isolate overflow-hidden">
-          <div
-            className="absolute inset-0"
+          <div className="absolute inset-0 bg-[#071a3b]" />
+          <img
+            src={brand.heroBanner}
+            alt="Khalsa Tour and Travels hero banner"
+            className="absolute inset-0 h-full w-full object-contain object-top md:object-cover md:object-center"
             style={{
-              backgroundImage: `linear-gradient(114deg, rgba(4,16,40,0.46) 0%, rgba(14,36,72,0.16) 46%, rgba(6,21,48,0.38) 100%), url(${brand.heroBanner})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              transform: 'scale(1.02)',
-              filter: 'saturate(1.12) contrast(1.02) brightness(1.02)',
+              filter: 'saturate(1.08) contrast(1.01) brightness(1.03)',
+              transform: 'scale(1)',
             }}
           />
-          <div className="noise-overlay absolute inset-0 opacity-38" />
-          <div className="hero-gloss absolute inset-0 opacity-55" />
-          <div className="hero-lens absolute inset-0 opacity-5" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.12),transparent_20%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_28%)]" />
-          <div className="absolute inset-x-0 top-0 h-[120px] bg-gradient-to-b from-white/8 via-white/3 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-[150px] bg-gradient-to-t from-[#061530]/26 via-[#061530]/6 to-transparent" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,21,48,0.08)_0%,rgba(6,21,48,0.02)_34%,rgba(6,21,48,0.16)_100%)] md:bg-[linear-gradient(114deg,rgba(4,16,40,0.46)_0%,rgba(14,36,72,0.16)_46%,rgba(6,21,48,0.38)_100%)]" />
+          <div className="noise-overlay absolute inset-0 opacity-12 md:opacity-38" />
+          <div className="hero-gloss absolute inset-0 opacity-22 md:opacity-55" />
+          <div className="hero-lens absolute inset-0 opacity-0 md:opacity-5" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.06),transparent_20%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.05),transparent_28%)] md:bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.12),transparent_20%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_28%)]" />
+          <div className="absolute inset-x-0 top-0 h-[70px] bg-gradient-to-b from-white/5 via-white/[0.02] to-transparent md:h-[120px] md:from-white/8 md:via-white/3" />
+          <div className="absolute inset-x-0 bottom-0 h-[90px] bg-gradient-to-t from-[#061530]/18 via-[#061530]/4 to-transparent md:h-[150px] md:from-[#061530]/26 md:via-[#061530]/6" />
 
-          <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-16 sm:px-6 lg:px-8 lg:pb-14 lg:pt-24">
-            <div className="h-[320px] sm:h-[380px] lg:h-[430px]" />
+          <div className="relative mx-auto max-w-7xl px-4 pb-4 pt-16 sm:px-6 sm:pb-10 lg:px-8 lg:pb-14 lg:pt-24">
+            <div className="h-[210px] sm:h-[340px] lg:h-[430px]" />
           </div>
         </section>
 
