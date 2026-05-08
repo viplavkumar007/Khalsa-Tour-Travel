@@ -20,12 +20,132 @@ export const contact = {
   mapLink: 'https://maps.google.com/?q=High+Court+Road+Janipur+Jammu+180005',
 }
 
+export const bankDetails = {
+  accountName: 'Khalsa Tour n Travels',
+  bankName: 'IDBI Bank',
+  accountNumber: '2034102000002479',
+  ifsc: 'IBKL0002034',
+  branch: 'Gunjan Plaza Dream Land School Janipur Jammu',
+  upiLabel: 'Google Pay / PhonePe',
+  upiNumber: '9419167547',
+  qrImage: '/assets/upi-qr.jpeg',
+}
+
+export const profileDetails = {
+  name: 'Avtar Singh',
+  dateOfBirth: '16/08/1985',
+  nationality: 'Indian',
+  email: 'avtarmalhotra@hotmail.com',
+  address: 'R/o 133/B, L.No - 4, Janipur Lakkar Mandi, J&K 180007, India',
+  profilePdf: '/assets/avtar-profile.pdf',
+  summary: [
+    'Aspires to build a dynamic career in a prominent corporate environment with dedicated professionals and a culture of innovation.',
+    'Committed to contributing as a key team member in challenging, competitive settings while supporting organizational growth.',
+    'Values continuous learning, professional development, teamwork, and meaningful contribution through practical experience.',
+  ],
+  education: [
+    'Secondary School Examination - J&K State Board - 1st Division',
+    'Higher Secondary School Examination - J&K State Board - 1st Division',
+    'Bachelor of Science - Jammu University - 1st Division',
+  ],
+  experience: [
+    {
+      role: 'Associate Partner',
+      company: 'Triumphh Travel & More',
+      duration: '02/2018 - Present',
+      points: [
+        'Contributes to strategic direction and business growth using deep travel industry experience.',
+        'Builds partnerships with clients, suppliers, and stakeholders to strengthen business relationships.',
+        'Leads team coordination, execution, mentorship, and market research for new opportunities.',
+      ],
+    },
+    {
+      role: 'Regional Manager',
+      company: 'Ease My Trip',
+      duration: '02 Years',
+      points: [
+        'Developed regional growth initiatives and managed day-to-day operations.',
+        'Worked with cross-functional teams, performance reviews, budgets, and stakeholder relationships.',
+        'Monitored KPIs, market trends, and quality control to improve service and efficiency.',
+      ],
+    },
+    {
+      role: 'Sales Manager',
+      company: 'Travel Boutique Online',
+      duration: '02 Years',
+      points: [
+        'Executed strategic sales plans and exceeded targets aligned with company goals.',
+        'Managed key client relationships, team coaching, and sales performance reporting.',
+        'Collaborated with marketing and product teams to align business development efforts.',
+      ],
+    },
+    {
+      role: 'Senior Sales Executive',
+      company: 'TSI-Yatra P Ltd.',
+      duration: '02 Years 06 Months',
+      points: [
+        'Delivered strong sales performance through client relationship management and market analysis.',
+        'Supported sales strategy execution, presentations, deal closures, and performance reporting.',
+        'Coordinated with finance and operations for smooth execution of transactions.',
+      ],
+    },
+    {
+      role: 'Sales Executive',
+      company: 'ITZ Cash Card Ltd. (Essel Group)',
+      duration: '02 Years',
+      points: [
+        'Consistently met and exceeded sales targets while building tailored client solutions.',
+        'Conducted market research, networking, and persuasive sales presentations.',
+        'Negotiated deals and coordinated internally for efficient completion of sales transactions.',
+      ],
+    },
+    {
+      role: 'Unit Manager',
+      company: 'ICICI Prudential LIC Co Ltd.',
+      duration: '02 Years',
+      points: [
+        'Led insurance professionals with a focus on productivity, client trust, and training.',
+        'Implemented sales strategies, market monitoring, recruitment, and onboarding support.',
+        'Improved operations through cross-functional collaboration and customer issue resolution.',
+      ],
+    },
+  ],
+  strengths: [
+    'Continuous Learning',
+    'Logical and Analytical Aptitude',
+    'Team Building Expertise',
+    'Persuasive Communication Skills',
+    'Confidence and Innovation',
+    'Initiative-Taker',
+    'Teamwork Advocate',
+  ],
+  achievements: [
+    'Won the inter-college cricket championship on two occasions.',
+    'Actively participated in multiple NCC camps to strengthen teamwork, discipline, and leadership.',
+  ],
+  skillScores: [
+    { label: 'Leadership', value: 80 },
+    { label: 'Strategic Planning', value: 85 },
+    { label: 'Client Relationship Management', value: 90 },
+    { label: 'Team Collaboration', value: 85 },
+    { label: 'Negotiation Skills', value: 85 },
+    { label: 'Analytical Thinking', value: 80 },
+    { label: 'Effective Communication', value: 90 },
+    { label: 'Initiative and Innovation', value: 85 },
+  ],
+  languages: ['English', 'Hindi', 'Punjabi', 'Dogri'],
+  computerSkills: ['MS Office (Word/Excel/PowerPoint)', 'Email/Internet'],
+  hobbies: ['Exploring distant lands', 'Getting lost in a good book', 'Capturing moments', 'Feeling the music', 'Cricket'],
+}
+
 export const navLinks = [
   { label: 'Home', href: '#home' },
+  { label: 'Activities', href: '#activities' },
   { label: 'Packages', href: '#packages' },
   { label: 'Cabs', href: '#cabs' },
   { label: 'Destinations', href: '#destinations' },
-  { label: 'Offers', href: '#offers' },
+  { label: 'About', href: '#about' },
+  { label: 'Bank Details', href: '#bank-details' },
   { label: 'Contact', href: '#contact' },
 ]
 

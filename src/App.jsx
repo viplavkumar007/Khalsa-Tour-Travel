@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 import {
   ArrowRight,
+  Building2,
+  CreditCard,
   CalendarDays,
   CarFront,
   CheckCircle2,
   Clock3,
+  Landmark,
   Mail,
   MapPin,
   MessageCircle,
+  Monitor,
   Phone,
   Quote,
+  ScanLine,
   ShieldCheck,
   Star,
   Users,
@@ -19,6 +24,7 @@ import Footer from './components/Footer.jsx'
 import Toast from './components/Toast.jsx'
 import {
   brand,
+  bankDetails,
   cabFleet,
   contact,
   destinations,
@@ -26,6 +32,7 @@ import {
   gallery,
   offers,
   packages,
+  profileDetails,
   serviceHighlights,
   testimonials,
 } from './data/siteContent.js'
@@ -35,6 +42,23 @@ const quickLinks = [
   { label: 'Packages', href: '#packages' },
   { label: 'Cabs', href: '#cabs' },
   { label: 'Activities', href: '#activities' },
+]
+const enquiryServices = [
+  'Tour Package',
+  'Leh-Ladakh Package',
+  'Kashmir Holiday Package',
+  'Vaishno Devi Yatra',
+  'Honeymoon Tour',
+  'Family Holiday',
+  'Cab Service',
+  'Airport / Station Transfer',
+  'Local Sightseeing Cab',
+  'Hotel Booking Assistance',
+  'Flight Booking',
+  'Train Booking',
+  'Group Tour',
+  'Corporate Tour',
+  'Custom Travel Plan',
 ]
 
 function scrollToSection(href) {
@@ -108,13 +132,19 @@ export default function App() {
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `linear-gradient(110deg, rgba(6,21,48,0.5) 0%, rgba(14,36,72,0.32) 48%, rgba(6,21,48,0.42) 100%), url(${brand.heroBanner})`,
+              backgroundImage: `linear-gradient(114deg, rgba(4,16,40,0.46) 0%, rgba(14,36,72,0.16) 46%, rgba(6,21,48,0.38) 100%), url(${brand.heroBanner})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
+              transform: 'scale(1.02)',
+              filter: 'saturate(1.12) contrast(1.02) brightness(1.02)',
             }}
           />
-          <div className="noise-overlay absolute inset-0 opacity-60" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.22),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(251,191,36,0.16),transparent_28%)]" />
+          <div className="noise-overlay absolute inset-0 opacity-38" />
+          <div className="hero-gloss absolute inset-0 opacity-55" />
+          <div className="hero-lens absolute inset-0 opacity-5" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.12),transparent_20%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_28%)]" />
+          <div className="absolute inset-x-0 top-0 h-[120px] bg-gradient-to-b from-white/8 via-white/3 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-[150px] bg-gradient-to-t from-[#061530]/26 via-[#061530]/6 to-transparent" />
 
           <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-16 sm:px-6 lg:px-8 lg:pb-14 lg:pt-24">
             <div className="h-[320px] sm:h-[380px] lg:h-[430px]" />
@@ -122,37 +152,45 @@ export default function App() {
         </section>
 
         <section className="relative z-10 px-4 pt-8 sm:px-6 sm:pt-10 lg:px-8 lg:pt-12">
-          <div className="mx-auto max-w-7xl rounded-[8px] bg-white p-6 shadow-[0_18px_40px_rgba(6,21,48,0.16)] sm:p-8">
+          <div className="enquiry-shell mx-auto max-w-7xl p-6 sm:p-8">
+            <div className="relative z-10 mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="section-label">Fast Enquiry</p>
+                <h2 className="mt-3 font-display text-3xl font-semibold text-navy-950 sm:text-4xl">Plan your trip with a premium quick quote</h2>
+              </div>
+              <p className="max-w-xl text-sm leading-6 text-navy-600">
+                Share your dates and service preference. We will help with tours, stays, transport, and custom planning.
+              </p>
+            </div>
             <form
-              className="grid gap-4 lg:grid-cols-[1fr_1fr_1fr_1fr_0.95fr]"
+              className="relative z-10 grid gap-4 lg:grid-cols-[1fr_1fr_1fr_1fr_0.95fr]"
               onSubmit={(event) => onDemoSubmit(event, 'Thanks. Your tour enquiry is ready for follow-up.')}
             >
               <label className="block">
-                <span className="mb-3 block text-lg font-semibold text-navy-950">Name</span>
-                <input className="input-field h-14 rounded-md" type="text" placeholder="Your Name" required />
+                <span className="mb-3 block text-sm font-bold uppercase tracking-[0.16em] text-navy-700">Name</span>
+                <input className="input-field enquiry-input h-14 rounded-2xl border px-5" type="text" placeholder="Your Name" required />
               </label>
               <label className="block">
-                <span className="mb-3 block text-lg font-semibold text-navy-950">Mobile</span>
-                <input className="input-field h-14 rounded-md" type="tel" placeholder="WhatsApp Number" required />
+                <span className="mb-3 block text-sm font-bold uppercase tracking-[0.16em] text-navy-700">Mobile</span>
+                <input className="input-field enquiry-input h-14 rounded-2xl border px-5" type="tel" placeholder="WhatsApp Number" required />
               </label>
               <label className="block">
-                <span className="mb-3 block text-lg font-semibold text-navy-950">Service</span>
-                <select className="input-field h-14 rounded-md appearance-none" defaultValue="">
-                  <option value="" disabled>Tour Package</option>
-                  <option>Tour Package</option>
-                  <option>Cab Service</option>
-                  <option>Self Drive Car</option>
-                  <option>Bike Rental</option>
+                <span className="mb-3 block text-sm font-bold uppercase tracking-[0.16em] text-navy-700">Service</span>
+                <select className="input-field enquiry-input h-14 rounded-2xl border px-5 appearance-none" defaultValue="">
+                  <option value="" disabled>Select a service</option>
+                  {enquiryServices.map((service) => (
+                    <option key={service}>{service}</option>
+                  ))}
                 </select>
               </label>
               <label className="block">
-                <span className="mb-3 block text-lg font-semibold text-navy-950">Date</span>
-                <input className="input-field h-14 rounded-md" type="date" aria-label="Travel date" />
+                <span className="mb-3 block text-sm font-bold uppercase tracking-[0.16em] text-navy-700">Date</span>
+                <input className="input-field enquiry-input h-14 rounded-2xl border px-5" type="date" aria-label="Travel date" />
               </label>
               <div className="flex items-end">
                 <button
                   type="submit"
-                  className="inline-flex h-14 w-full items-center justify-center rounded-md bg-[#d96f06] px-6 text-sm font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#bd6106]"
+                  className="enquiry-submit inline-flex h-14 w-full items-center justify-center rounded-2xl px-6 text-sm font-bold uppercase tracking-[0.14em] text-white transition-all duration-300 hover:-translate-y-0.5"
                 >
                   Enquire Now
                 </button>
@@ -166,7 +204,7 @@ export default function App() {
                 key={item.label}
                 type="button"
                 onClick={() => scrollToSection(item.href)}
-                className="min-w-[180px] rounded-[4px] bg-[#f97316] px-10 py-4 text-center text-xl font-bold uppercase tracking-[0.08em] text-white shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e96812]"
+                className="min-w-[145px] rounded-[4px] bg-[#f97316] px-6 py-3 text-center text-base font-bold uppercase tracking-[0.08em] text-white shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e96812] sm:min-w-[180px] sm:px-10 sm:py-4 sm:text-xl"
               >
                 {item.label}
               </button>
@@ -175,28 +213,38 @@ export default function App() {
         </section>
 
         <section id="activities" className="px-4 pt-14 sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-4 rounded-[28px] bg-white p-5 shadow-card sm:grid-cols-2 lg:grid-cols-4">
+          <div className="activities-shell mx-auto max-w-7xl p-5 sm:p-6">
+            <div className="relative z-10 mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="section-label">Travel Help</p>
+                <h2 className="mt-3 font-display text-3xl font-semibold text-navy-950 sm:text-4xl">Bright little service blocks that make planning feel easy</h2>
+              </div>
+              <p className="max-w-2xl text-sm leading-6 text-navy-600">
+                Quick support for stays, tickets, sightseeing, and group movement, presented in a more lively and joyful style.
+              </p>
+            </div>
+            <div className="relative z-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {serviceHighlights.map((item, index) => {
               const Icon = serviceIcons[index % serviceIcons.length]
               return (
-                <article key={item.title} className="rounded-3xl border border-navy-100 bg-[#fbfaf6] p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(6,21,48,0.08)]">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-navy-900 text-gold-300">
+                  <article key={item.title} className="activity-card p-5 transition-all duration-300">
+                  <div className="activity-icon flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#1a3866_0%,#2a4f84_50%,#f59e0b_160%)] text-[#ffe8a3]">
                     <Icon size={20} />
                   </div>
-                  <h3 className="mt-4 text-lg font-bold text-navy-950">{item.title}</h3>
+                  <h3 className="mt-5 text-xl font-bold text-navy-950">{item.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-navy-600">{item.description}</p>
                   <div className="mt-5 flex flex-wrap gap-3">
                     <a
                       href={getServiceWhatsappLink(item.title)}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-full bg-[#25d366] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#1faa52]"
+                      className="activity-action inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#34d399,#25d366_55%,#128c7e)] px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:saturate-125"
                     >
                       WhatsApp
                     </a>
                     <a
                       href={getServiceMailLink(item.title)}
-                      className="inline-flex items-center justify-center rounded-full border border-navy-200 bg-white px-4 py-2 text-sm font-semibold text-navy-900 transition-colors hover:bg-navy-50"
+                      className="activity-action-alt inline-flex items-center justify-center rounded-full border border-white/90 bg-white/92 px-4 py-2 text-sm font-semibold text-navy-900 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#fff7ea]"
                     >
                       Email
                     </a>
@@ -204,22 +252,28 @@ export default function App() {
                 </article>
               )
             })}
+            </div>
           </div>
         </section>
 
         <section id="packages" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="inline-flex max-w-full items-center rounded-full border border-gold-200 bg-gold-50 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.16em] text-gold-700 shadow-[0_10px_24px_rgba(245,158,11,0.16)] sm:text-xs sm:tracking-[0.2em]">
+              Special: Srinagar, Jammu & Amritsar Packages with Jammu to Jammu Transportation
+            </p>
+          </div>
           <SectionHeading
             label="Tour Packages"
-            title="Handpicked travel plans built around how people actually explore Kashmir"
-            description="We borrowed the strong package-led flow from the reference site, but shaped it around your business, your destinations, and your visual identity."
+            title="Srinagar, Jammu & Amritsar packages with smooth Jammu to Jammu travel planning"
+            description="Special: Srinagar, Jammu & Amritsar Packages with Jammu to Jammu Transportation."
             center
-          />
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {packages.map((item) => (
-              <article key={item.title} className="card-base overflow-hidden rounded-[30px]">
-                <div
-                  className="relative min-h-[220px] p-6 text-white"
-                  style={{
+            />
+            <div className="mt-12 grid gap-6 lg:grid-cols-2">
+              {packages.map((item) => (
+                <article key={item.title} className="package-card transition-all duration-300">
+                  <div
+                    className="relative min-h-[220px] p-6 text-white"
+                    style={{
                     backgroundImage: `linear-gradient(180deg, rgba(6,21,48,0.15) 0%, rgba(6,21,48,0.78) 100%), url(${item.image})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
@@ -228,7 +282,7 @@ export default function App() {
                   <div className="inline-flex rounded-full bg-gold-400 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-navy-950">
                     {item.badge}
                   </div>
-                  <h3 className="mt-5 font-display text-3xl font-bold">{item.title}</h3>
+                  <h3 className="mt-5 font-display text-2xl font-bold sm:text-3xl">{item.title}</h3>
                   <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/12 px-3 py-1.5 text-sm text-white/85">
                     <Clock3 size={15} />
                     {item.duration}
@@ -362,6 +416,160 @@ export default function App() {
           </div>
         </section>
 
+        <section id="about" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="About Us"
+            title={`${profileDetails.name} and the experience behind Khalsa Tour n Travels`}
+            description="Profile details extracted from the provided PDF and organized into a cleaner, website-friendly company profile section."
+          />
+
+          <div className="mt-10 grid gap-10 lg:grid-cols-[1.08fr_0.92fr]">
+            <div className="space-y-6">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-[26px] border border-navy-100 bg-white p-6 shadow-card">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Full Name</p>
+                  <p className="mt-3 text-2xl font-bold text-navy-950">{profileDetails.name}</p>
+                </div>
+                <div className="rounded-[26px] border border-navy-100 bg-white p-6 shadow-card">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Date of Birth</p>
+                  <p className="mt-3 text-2xl font-bold text-navy-950">{profileDetails.dateOfBirth}</p>
+                </div>
+                <div className="rounded-[26px] border border-navy-100 bg-white p-6 shadow-card">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Nationality</p>
+                  <p className="mt-3 text-2xl font-bold text-navy-950">{profileDetails.nationality}</p>
+                </div>
+                <div className="rounded-[26px] border border-navy-100 bg-white p-6 shadow-card">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Email</p>
+                  <p className="mt-3 text-base font-semibold text-navy-950 break-all">{profileDetails.email}</p>
+                </div>
+              </div>
+
+              <div className="rounded-[30px] border border-navy-100 bg-white p-6 shadow-card">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Profile Summary</p>
+                <div className="mt-4 space-y-3 text-sm leading-7 text-navy-700">
+                  {profileDetails.summary.map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid gap-6 lg:grid-cols-2">
+                <div className="rounded-[30px] border border-navy-100 bg-white p-6 shadow-card">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Education</p>
+                  <div className="mt-4 space-y-3 text-sm leading-7 text-navy-700">
+                    {profileDetails.education.map((item) => (
+                      <p key={item}>{item}</p>
+                    ))}
+                  </div>
+                </div>
+                <div className="rounded-[30px] border border-navy-100 bg-white p-6 shadow-card">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Strengths</p>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    {profileDetails.strengths.map((item) => (
+                      <span key={item} className="rounded-full bg-gold-50 px-4 py-2 text-sm font-semibold text-gold-700">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-6 self-start">
+              <div className="rounded-[32px] bg-[linear-gradient(145deg,#061530_0%,#1a3866_60%,#234775_100%)] p-6 text-white shadow-navy">
+                <p className="section-label text-gold-300">Profile PDF</p>
+                <h3 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">Original profile preview</h3>
+                <p className="mt-3 text-sm leading-7 text-white/78">
+                  Open the original PDF profile for the complete formatted version of the extracted details.
+                </p>
+                <div className="mt-6 overflow-hidden rounded-[24px] border border-white/10 bg-white">
+                  <object data={profileDetails.profilePdf} type="application/pdf" className="h-[320px] w-full sm:h-[420px]">
+                    <div className="flex h-[320px] flex-col items-center justify-center gap-3 bg-white px-6 text-center text-navy-900 sm:h-[420px]">
+                      <Monitor size={28} className="text-gold-600" />
+                      <p className="font-semibold">PDF preview is not available in this browser.</p>
+                      <a href={profileDetails.profilePdf} target="_blank" rel="noreferrer" className="btn-gold text-sm">
+                        Open Profile PDF
+                      </a>
+                    </div>
+                  </object>
+                </div>
+                <a href={profileDetails.profilePdf} target="_blank" rel="noreferrer" className="btn-gold mt-6 text-sm">
+                  Open Full Profile
+                </a>
+              </div>
+
+              <div className="rounded-[30px] border border-navy-100 bg-white p-6 shadow-card">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Languages</p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {profileDetails.languages.map((item) => (
+                    <span key={item} className="rounded-full bg-navy-50 px-4 py-2 text-sm font-semibold text-navy-800">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-[30px] border border-navy-100 bg-white p-6 shadow-card">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Computer Skills</p>
+                <div className="mt-4 space-y-3 text-sm leading-7 text-navy-700">
+                  {profileDetails.computerSkills.map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-[30px] border border-navy-100 bg-white p-6 shadow-card">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Achievements</p>
+                <div className="mt-4 space-y-3 text-sm leading-7 text-navy-700">
+                  {profileDetails.achievements.map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-[30px] border border-navy-100 bg-white p-6 shadow-card">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Address</p>
+                <p className="mt-4 text-sm leading-7 text-navy-700">{profileDetails.address}</p>
+              </div>
+
+              <div className="rounded-[30px] border border-navy-100 bg-white p-6 shadow-card">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Interests & Hobbies</p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {profileDetails.hobbies.map((item) => (
+                    <span key={item} className="rounded-full bg-[#fff7ea] px-4 py-2 text-sm font-semibold text-gold-800">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 rounded-[30px] border border-navy-100 bg-white p-6 shadow-card">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-700">Work Experience</p>
+            <div className="mt-5 grid gap-5 xl:grid-cols-2">
+              {profileDetails.experience.map((item) => (
+                <article key={`${item.role}-${item.company}`} className="rounded-[24px] border border-navy-100 bg-[#fbfaf6] p-5">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-navy-950">{item.role}</h3>
+                      <p className="text-sm font-semibold text-gold-700">{item.company}</p>
+                    </div>
+                    <span className="rounded-full bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-navy-700">
+                      {item.duration}
+                    </span>
+                  </div>
+                  <div className="mt-4 space-y-2 text-sm leading-7 text-navy-700">
+                    {item.points.map((point) => (
+                      <p key={point}>{point}</p>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="bg-white py-20">
           <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
             <div>
@@ -412,6 +620,84 @@ export default function App() {
           </div>
         </section>
 
+        <section id="bank-details" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="overflow-hidden rounded-[34px] border border-navy-100 bg-white shadow-[0_24px_60px_rgba(6,21,48,0.08)]">
+            <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="relative overflow-hidden bg-[linear-gradient(145deg,#061530_0%,#1a3866_58%,#2a4f84_100%)] p-7 text-white sm:p-10">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.18),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_26%)]" />
+                <div className="relative">
+                  <p className="section-label text-gold-300">Bank Details</p>
+                  <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">Pay by bank transfer or scan the UPI QR</h2>
+                  <p className="mt-4 max-w-xl text-sm leading-7 text-white/76">
+                    Use the official Khalsa Tour n Travels account below for advance payments, package confirmations, and booking settlements.
+                  </p>
+
+                  <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-[24px] border border-white/12 bg-white/10 p-5 backdrop-blur-sm">
+                      <Building2 size={20} className="text-gold-300" />
+                      <p className="mt-3 text-xs font-bold uppercase tracking-[0.16em] text-white/60">Account Name</p>
+                      <p className="mt-2 text-lg font-semibold">{bankDetails.accountName}</p>
+                    </div>
+                    <div className="rounded-[24px] border border-white/12 bg-white/10 p-5 backdrop-blur-sm">
+                      <Landmark size={20} className="text-gold-300" />
+                      <p className="mt-3 text-xs font-bold uppercase tracking-[0.16em] text-white/60">Bank</p>
+                      <p className="mt-2 text-lg font-semibold">{bankDetails.bankName}</p>
+                    </div>
+                    <div className="rounded-[24px] border border-white/12 bg-white/10 p-5 backdrop-blur-sm">
+                      <CreditCard size={20} className="text-gold-300" />
+                      <p className="mt-3 text-xs font-bold uppercase tracking-[0.16em] text-white/60">Account Number</p>
+                      <p className="mt-2 text-lg font-semibold break-all">{bankDetails.accountNumber}</p>
+                    </div>
+                    <div className="rounded-[24px] border border-white/12 bg-white/10 p-5 backdrop-blur-sm">
+                      <ScanLine size={20} className="text-gold-300" />
+                      <p className="mt-3 text-xs font-bold uppercase tracking-[0.16em] text-white/60">IFSC Code</p>
+                      <p className="mt-2 text-lg font-semibold">{bankDetails.ifsc}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 rounded-[24px] border border-white/12 bg-white/10 p-5 backdrop-blur-sm">
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/60">Branch</p>
+                    <p className="mt-2 text-base font-semibold leading-7">{bankDetails.branch}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-[linear-gradient(180deg,#fffdf8_0%,#fff7ea_100%)] p-7 sm:p-10">
+                <div className="mx-auto max-w-md text-center">
+                  <p className="inline-flex items-center rounded-full border border-gold-200 bg-gold-50 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-gold-700">
+                    UPI Payment
+                  </p>
+                  <h3 className="mt-5 font-display text-2xl font-semibold text-navy-950 sm:text-3xl">Scan and pay instantly</h3>
+                  <p className="mt-3 text-sm leading-7 text-navy-600">
+                    {bankDetails.upiLabel}: <span className="font-bold text-navy-900">{bankDetails.upiNumber}</span>
+                  </p>
+
+                  <div className="mt-6 overflow-hidden rounded-[28px] border border-gold-100 bg-white p-4 shadow-[0_20px_40px_rgba(6,21,48,0.08)]">
+                    <img
+                      src={bankDetails.qrImage}
+                      alt="Khalsa Tour n Travels UPI QR code"
+                      className="w-full rounded-[20px] object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <p className="mt-5 text-sm leading-7 text-navy-600">
+                    After payment, share the screenshot on WhatsApp so your booking can be confirmed quickly.
+                  </p>
+                  <a
+                    href={`https://wa.me/${contact.whatsapp}?text=Hi%20Khalsa%20Tour%20%26%20Travels%2C%20I%20have%20made%20a%20payment%20and%20want%20to%20share%20the%20receipt.`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-whatsapp mt-6"
+                  >
+                    Share Payment Screenshot
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
             <div>
@@ -432,7 +718,7 @@ export default function App() {
 
             <div id="contact" className="rounded-[34px] bg-navy-gradient p-7 text-white shadow-navy">
               <p className="section-label text-gold-300">Contact Us</p>
-              <h2 className="mt-4 font-display text-4xl font-bold">Start your next journey with a real conversation</h2>
+              <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl">Start your next journey with a real conversation</h2>
               <p className="mt-4 max-w-xl text-sm leading-7 text-white/76">
                 Tell us where you want to go and how you want to travel. We can help with packages, transport, or a full tour plan.
               </p>
